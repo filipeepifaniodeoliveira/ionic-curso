@@ -15,38 +15,38 @@
 
 <ion-content padding>
 
-    <ion-card>
-    
+    <ion-card *ngFor="let filme of list_filmes"> 
+      <!-- <ion-card *ngFor="let filme of list_filmes">  -->
       <ion-item>
         <ion-avatar item-start>
           <img src="../../assets/imgs/natura-logo-paste.jpg">
         </ion-avatar>
-        <h2 class="feed-title">{{nome_usuario}}</h2>
-        <p class="feed-subtitle">November 6, 2018</p>
+        <h2 class="feed-title">{{filme.original_title}}</h2>
+        <p class="feed-subtitle">{{filme.release_date}}</p>
       </ion-item>
     
-      <img src="../../assets/imgs/natura-logo.jpg">
+      <img [src]="'https://image.tmdb.org/t/p/w300/' + filme.backdrop_path">
     
       <ion-card-content>
-        <p>Por que fomos abandonados.</p>
+        <p>{{filme.overview}}</p>
       </ion-card-content>
     
       <ion-row>
         <ion-col>
           <button ion-button icon-start clear small>
             <ion-icon name="thumbs-up"></ion-icon>
-            <div>Adeus</div>
+            <div>{{filme.popularity}}</div>
           </button>
         </ion-col>
         <ion-col>
           <button ion-button icon-start clear small>
             <ion-icon name="text"></ion-icon>
-            <div>4 Comments</div>
+            <div>{{filme.vote_average}}</div>
           </button>
         </ion-col>
         <ion-col center text-center>
           <ion-note>
-            11h ago
+            {{filme.vote_count}}
           </ion-note>
         </ion-col>
       </ion-row>
